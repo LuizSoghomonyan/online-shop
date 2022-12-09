@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+
+<mat-card  class="card">
+  <mat-card-header style="font-size: larger; margin-right: 70px; margin-bottom: 30px">Sign In</mat-card-header>
+  <mat-card-content>
+
+      <div class="input">
+        <mat-form-field >
+          <mat-label>Email</mat-label>
+
+          <input type="email" matInput [formControlName]="'email'" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+
+          <mat-error *ngIf="form.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div  class="input">
+        <mat-form-field >
+          <mat-label>Password</mat-label>
+
+          <input type="password" matInput [formControlName]="'password'">
+<!--          <p>{{form.controls['password']?.errors?.['minlength'] | json}}</p>-->
+          <mat-error *ngIf="form.controls['password'].hasError('minlength') &&
+          !form.controls['password'].hasError('required')">
+           Please use at least {{form.controls['password']?.errors?.['minlength']?.['actualLength']}} characters
+          </mat-error>
+          <mat-error *ngIf="form.controls['password'].hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+  </mat-card-content>
+
+<!--  <mat-divider></mat-divider>-->
+  <mat-card-actions class="input">
+    <button mat-flat-button color="primary" class="btn">Login</button>
+<!--    <button mat-flat-button color="accent" class="btn">Accent</button>-->
+  </mat-card-actions>
+</mat-card>
+
+
+</form>
