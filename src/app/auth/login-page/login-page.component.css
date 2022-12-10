@@ -1,5 +1,5 @@
 form{
-  background-image: url("../../assets/img/login-page.png");
+  background-image: url("../../../assets/img/login-page.png");
 
   background-size: cover;
   background-position: center center;
@@ -16,8 +16,7 @@ form{
   margin: auto;
   width: 400px;
   height: 450px;
-  box-shadow: 4px 1px 1px -1px rgb(0 0 0 / 20%), 20px -19px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-  display: flex;
+  box-shadow: 4px 1px 1px -1px rgb(0 0 0 / 20%), 19px -20px 7px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);  display: flex;
   align-content: space-around;
   align-items: center;
   flex-wrap: wrap;
