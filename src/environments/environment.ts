@@ -11,8 +11,8 @@ export const environment = {
     storageBucket: 'online-shop-1ab69.appspot.com',
     messagingSenderId: '269315900785',
     appId: '1:269315900785:web:73a71269dcb528153822d0',
-    measurementId: 'G-W32VR8EJWC'
-  }
+    measurementId: 'G-W32VR8EJWC',
+  },
 };
 
 /*

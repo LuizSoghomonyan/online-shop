@@ -1,46 +1,36 @@
 <form [formGroup]="form" (submit)="logIn()">
-
-<mat-card  class="card">
-  <mat-card-header style="font-size: larger; margin-right: 70px; margin-bottom: 30px">Sign In</mat-card-header>
-  <mat-card-content>
+  <mat-card class="card">
+    <mat-card-header style="font-size: larger; margin-right: 70px; margin-bottom: 30px">Sign In</mat-card-header>
+    <mat-card-content>
       <div class="input">
-        <mat-form-field >
+        <mat-form-field>
           <mat-label>Email</mat-label>
 
-          <input type="email" matInput [formControlName]="'email'" placeholder="Ex. pat@example.com">
+          <input type="email" matInput [formControlName]="'email'" placeholder="Ex. pat@example.com" />
           <mat-error *ngIf="form.controls['email'].hasError('email') && !form.controls['email'].hasError('required')">
             Please enter a valid email address
           </mat-error>
 
-          <mat-error *ngIf="form.controls['email'].hasError('required')">
-            Email is required
-          </mat-error>
+          <mat-error *ngIf="form.controls['email'].hasError('required')"> Email is required </mat-error>
         </mat-form-field>
       </div>
 
-      <div  class="input">
-        <mat-form-field >
+      <div class="input">
+        <mat-form-field>
           <mat-label>Password</mat-label>
 
-          <input type="password" matInput [formControlName]="'password'">
-<!--          <p>{{form.controls['password']?.errors?.['minlength'] | json}}</p>-->
+          <input type="password" matInput [formControlName]="'password'" />
+          <!--          <p>{{form.controls['password']?.errors?.['minlength'] | json}}</p>-->
 
-          <mat-error *ngIf="form.controls['password'].hasError('required')">
-            Password is required
-          </mat-error>
+          <mat-error *ngIf="form.controls['password'].hasError('required')"> Password is required </mat-error>
         </mat-form-field>
       </div>
-
-
-
-  </mat-card-content>
-<mat-error *ngIf="showNotFoundUserError">Incorrect Login/Password</mat-error>
-<!--  <mat-divider></mat-divider>-->
-  <mat-card-actions class="input">
-    <button mat-flat-button color="primary" class="btn" type="submit">Login</button>
-<!--    <button mat-flat-button color="accent" class="btn">Accent</button>-->
-  </mat-card-actions>
-</mat-card>
-
-
+    </mat-card-content>
+    <mat-error *ngIf="showNotFoundUserError">Incorrect Login/Password</mat-error>
+    <!--  <mat-divider></mat-divider>-->
+    <mat-card-actions class="input">
+      <button mat-flat-button color="primary" class="btn" type="submit">Login</button>
+      <!--    <button mat-flat-button color="accent" class="btn">Accent</button>-->
+    </mat-card-actions>
+  </mat-card>
 </form>
