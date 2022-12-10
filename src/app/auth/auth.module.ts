@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgIf } from "@angular/common";
 import { LoginPageComponent } from "./login-page/login-page.component";
 import { RouterModule, Routes } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
-import { CoreModule } from "../core/core.module";
 import { TestComponent } from "../test/test.component";
 import {  AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { SignUpComponent } from './sign-up/sign-up.component';

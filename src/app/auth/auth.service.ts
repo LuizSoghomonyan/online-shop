@@ -21,19 +21,17 @@ export class AuthService {
   }
 
   public logIn(email: string, password: string): Observable<User | undefined>{
-    // @ts-ignore
     return from(this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         if (result.user)
-            return this.userDtoConvertToUser(result.user, this.userData);
+            return this.userDtoConvertToUser(result.user);
         return undefined
-      })
-      .catch((err)=> console.log(err)));
+      }));
   }
 
 
-   private userDtoConvertToUser(user: firebase.User, userData: User): User {
+   private userDtoConvertToUser(user: firebase.User): User {
       this.userData.id = user.uid;
       this.userData.email = user.email || '';
       this.userData.displayName = user.displayName || '';

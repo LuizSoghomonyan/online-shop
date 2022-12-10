@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../auth.service";
 import { User, emptyUser } from "../models/user";
@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
   form: FormGroup;
   userData: User;
   public showNotFoundUserError: boolean;
@@ -27,8 +27,6 @@ export class LoginPageComponent implements OnInit {
     this.showNotFoundUserError = false;
   }
 
-  ngOnInit(): void {
-  }
 
   logIn() {
     //todo isValid

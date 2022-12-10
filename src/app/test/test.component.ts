@@ -1,25 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {FirebaseService} from "../../firebase/firebase.service";
-import {Observable, of, tap} from "rxjs";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
-  test$: Observable<any[]>;
-  constructor(public firestore: FirebaseService) {
-    this.test$ = of();
-  }
+export class TestComponent{
 
-  ngOnInit(): void {
-    this.test$ = this.firestore.getTestData()
-          .pipe(
-              tap(x => console.log(x))
-
-    );
-    this.test$.subscribe()
-  }
 
 }
