@@ -12,15 +12,17 @@
     "precommit": "run-s format:fix lint",
     "format:check": "prettier --config .prettierrc.json --list-different \\\"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\\\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && ng lint && ng test",
-      "pre-push": "ng build --aot true"
-    }
-  },
   "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --fix"
+    "*.{js,json,md,html}": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write",
+      "npm run lint-css"
+    ],
+    "*.ts": [
+      "prettier --write",
+      "npm run lint"
     ]
   },
   "private": true,
