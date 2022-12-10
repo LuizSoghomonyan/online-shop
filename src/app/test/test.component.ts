@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent implements OnInit {
+  ttt: number=12312;
   ngOnInit() {
 
 
