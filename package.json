@@ -10,6 +10,11 @@
     "lint": "ng lint",
     "format": "prettier --write src/."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "lint-staged": {
     "*.{js,json,md,html}": [
       "prettier --write"
