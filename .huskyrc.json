@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "lint-staged",
+    "pre-commit": "ng lint",
     "pre-push": "ng build --aot true"
   }
 }

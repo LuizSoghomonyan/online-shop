@@ -8,9 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "format": "prettier --write src/.",
-    "precommit": "run-s format:fix lint",
-    "format:check": "prettier --config .prettierrc.json --list-different \\\"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\\\""
+    "format": "prettier --write src/."
   },
   "lint-staged": {
     "*.{js,json,md,html}": [

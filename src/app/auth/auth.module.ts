@@ -19,6 +19,8 @@ const routes: Routes = [
 export class AuthModule {
   test: number = 1;
   test2:number=
+
+
     111;
 
 
