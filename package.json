@@ -8,12 +8,12 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "format": "prettier --write src/.",
+    "prettier": "prettier --write src/**/*.{ts,js,css,html}",
     "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": ""
+      "pre-commit": "npm run prettier --staged && ng lint && npm test"
     }
   },
   "lint-staged": {
