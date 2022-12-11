@@ -4,6 +4,7 @@ import {
   AbstractType,
   Type,
   AfterContentInit,
+  assertPlatform,
 } from '@angular/core'
 
 @Component({
