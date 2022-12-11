@@ -17,20 +17,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,md,html}": [
-      "prettier --write",
-      "eslint"
-    ],
-    "*.css": [
-      "prettier --write",
-      "npm run lint-css",
-      "eslint"
-    ],
-    "*.ts": [
-      "prettier --write",
-      "eslint"
+    "*.{js,ts}": [
+      "eslint --fix"
     ]
   },
+
   "private": true,
   "dependencies": {
     "@angular-eslint/builder": "^15.1.0",
@@ -63,6 +54,7 @@
     "@typescript-eslint/parser": "5.44.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",

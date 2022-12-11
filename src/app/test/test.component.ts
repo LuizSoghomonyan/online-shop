@@ -17,6 +17,7 @@ export class TestComponent implements OnInit {
   ttt22: number = 12312
   ttt212: number = 12312
   ttt2312: number = 12312
+  ttt21112: number = 12312
   constructor() {}
   ngOnInit() {}
 }
