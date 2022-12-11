@@ -13,7 +13,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier --staged && ng lint && npm test"
+      "pre-commit": "lint-staged && ng lint"
     }
   },
   "lint-staged": {

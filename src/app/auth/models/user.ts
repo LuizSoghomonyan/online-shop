@@ -1,8 +1,8 @@
 export interface User {
-  id?: string;
-  displayName: string;
-  email: string;
-  emailVerified: boolean;
+  id?: string
+  displayName: string
+  email: string
+  emailVerified: boolean
 }
 
 export function emptyUser(): User {
@@ -11,5 +11,5 @@ export function emptyUser(): User {
     displayName: '',
     id: '',
     emailVerified: false,
-  };
+  }
 }

@@ -1,7 +1,0 @@
-{
-  "hooks": {
-    "pre-commit": "ng lint",
-    "pre-push": "ng build --aot true"
-  }
-}
-
