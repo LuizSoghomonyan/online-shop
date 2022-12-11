@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, AbstractType } from '@angular/core'
 
 @Component({
   selector: 'app-test',
@@ -10,5 +10,6 @@ export class TestComponent implements OnInit {
   ttt22: number = 12312
   ttt212: number = 12312
   ttt2312: number = 12312
+  constructor() {}
   ngOnInit() {}
 }
