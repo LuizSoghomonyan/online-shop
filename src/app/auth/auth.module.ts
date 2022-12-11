@@ -16,7 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes), SharedModule, AngularFireAuthModule],
   exports: [LoginPageComponent],
 })
-export class AuthModule {
-  test: number = 1
-  test2: number = 111
-}
+export class AuthModule {}

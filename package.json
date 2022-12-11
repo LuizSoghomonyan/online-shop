@@ -9,17 +9,21 @@
     "test": "ng test",
     "lint": "ng lint",
     "prettier": "prettier --write src/**/*.{ts,js,css,html}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pre-commit": "npx pretty-quick --staged && lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run pre-commit"
     }
   },
   "lint-staged": {
-    "*.{js,json,md,html}": [
+    "*.{js,md,html}": [
       "prettier --write",
       "eslint"
+    ],
+    "*.json": [
+      "prettier --write"
     ],
     "*.css": [
       "prettier --write",
