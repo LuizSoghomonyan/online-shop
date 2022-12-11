@@ -1,4 +1,10 @@
-import { Component, OnInit, AbstractType, Type } from '@angular/core'
+import {
+  Component,
+  OnInit,
+  AbstractType,
+  Type,
+  AfterContentInit,
+} from '@angular/core'
 
 @Component({
   selector: 'app-test',

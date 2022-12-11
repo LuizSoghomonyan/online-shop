@@ -19,16 +19,16 @@
   "lint-staged": {
     "*.{js,json,md,html}": [
       "prettier --write",
-      "ng lint"
+      "eslint src/."
     ],
     "*.css": [
       "prettier --write",
       "npm run lint-css",
-      "ng lint"
+      "eslint src/."
     ],
     "*.ts": [
       "prettier --write",
-      "ng lint"
+      "eslint src/."
     ]
   },
   "private": true,
