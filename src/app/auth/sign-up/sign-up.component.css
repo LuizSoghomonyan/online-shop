@@ -1,0 +1,9 @@
+@import 'src/app/auth/auth-shared-styles.css';
+.card {
+  width: 500px;
+  height: 500px;
+}
+
+.btn {
+  margin-left: 69px;
+}

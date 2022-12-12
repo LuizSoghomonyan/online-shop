@@ -26,9 +26,7 @@
       "prettier --write"
     ],
     "*.css": [
-      "prettier --write",
-      "npm run lint-css",
-      "eslint"
+      "prettier --write"
     ],
     "*.ts": [
       "prettier --write",
