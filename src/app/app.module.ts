@@ -24,7 +24,6 @@ import { AuthModule } from './auth/auth.module'
     FormsModule,
     AuthModule,
   ],
-  providers: [FirebaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

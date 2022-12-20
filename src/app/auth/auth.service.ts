@@ -4,7 +4,6 @@ import { Router } from '@angular/router'
 import { from, Observable } from 'rxjs'
 import { emptyUser, User } from './models/user'
 import firebase from 'firebase/compat/app'
-import GoogleAuthProvider = firebase.auth.GoogleAuthProvider
 import { UserNotFound } from '../custom-exception/UserNotFound/user-not-found'
 
 @Injectable({
@@ -13,14 +12,15 @@ import { UserNotFound } from '../custom-exception/UserNotFound/user-not-found'
 export class AuthService {
   userData: User
 
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+  constructor(private firebaseAuth: AngularFireAuth) {
     this.userData = emptyUser()
   }
 
   //return provider for all login methods
   getProvider(loginMethodName = 'google') {
-    if (loginMethodName === 'google') return new GoogleAuthProvider()
-    else return new GoogleAuthProvider()
+    if (loginMethodName === 'google')
+      return new firebase.auth.GoogleAuthProvider()
+    else return new firebase.auth.GoogleAuthProvider()
   }
 
   public logIn(email: string, password: string): Observable<User | undefined> {
