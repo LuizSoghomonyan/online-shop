@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router'
 import { from, Observable } from 'rxjs'
-import { emptyUser, User } from './models/user'
+import { emptyUser, User } from '../models/user'
 import firebase from 'firebase/compat/app'
-import { UserNotFound } from '../custom-exception/UserNotFound/user-not-found'
+import { UserNotFound } from '../../custom-exception/UserNotFound/user-not-found'
 
 @Injectable({
   providedIn: 'root',

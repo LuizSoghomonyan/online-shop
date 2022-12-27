@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-import { AuthService } from '../auth.service'
-import { messages } from '../messages'
+import { AuthService } from '../../services/auth.service'
+import { messages } from '../../models/messages'
 import { Router } from '@angular/router'
 @Component({
   selector: 'app-sign-up',
