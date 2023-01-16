@@ -1,0 +1,19 @@
+<mat-toolbar style="background-color: #303030; height: 50px">
+  <span>Online Shop</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    aria-label="Example icon-button with a menu"
+  >
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="changeLanguageToENG()">
+      <span>Eng</span>
+    </button>
+    <button mat-menu-item (click)="changeLanguageToRU()">
+      <span>Ru</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

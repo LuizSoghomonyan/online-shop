@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from '../../environments/environment'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import {
+  AngularFirestore,
+  AngularFirestoreModule,
+} from '@angular/fire/compat/firestore'
 import { FirebaseService } from '../firebase.service'
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 
 @NgModule({
   declarations: [],
@@ -11,7 +16,11 @@ import { FirebaseService } from '../firebase.service'
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AngularFirestore],
 })
 export class FirebaseModule {}

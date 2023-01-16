@@ -1,15 +1,8 @@
 import { isDevMode } from '@angular/core'
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer,
-} from '@ngrx/store'
+import { ActionReducerMap, MetaReducer } from '@ngrx/store'
 
-export interface State {
-  test: string
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface State {}
 
 export const reducers: ActionReducerMap<State> = {}
 

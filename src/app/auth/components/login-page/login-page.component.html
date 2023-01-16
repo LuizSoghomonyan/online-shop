@@ -2,12 +2,12 @@
   <mat-card class="card">
     <mat-card-header
       style="font-size: larger; margin-right: 70px; margin-bottom: 30px"
-      >Sign In</mat-card-header
+      >{{ messages.get('auth/sign-in') }}</mat-card-header
     >
     <mat-card-content>
       <div class="input">
         <mat-form-field>
-          <mat-label>Email</mat-label>
+          <mat-label>{{ messages.get('auth/email') }}</mat-label>
 
           <input
             type="email"
@@ -21,30 +21,29 @@
               !form.controls['email'].hasError('required')
             "
           >
-            Please enter a valid email address
+            {{ messages.get('auth/please-enter-valid-email-address') }}
           </mat-error>
 
           <mat-error *ngIf="form.controls['email'].hasError('required')">
-            Email is required
+            {{ messages.get('auth/email-is-required') }}
           </mat-error>
         </mat-form-field>
       </div>
 
       <div class="input">
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>{{ messages.get('auth/password') }}</mat-label>
 
           <input type="password" matInput [formControlName]="'password'" />
           <mat-error *ngIf="form.controls['password'].hasError('required')">
-            Password is required
+            {{ messages.get('auth/password-is-required') }}
           </mat-error>
         </mat-form-field>
       </div>
     </mat-card-content>
-    <mat-error *ngIf="showNotFoundUserError"
-      >Incorrect Login/Password</mat-error
-    >
-    <!--  <mat-divider></mat-divider>-->
+    <mat-error *ngIf="showNotFoundUserError">
+      {{ messages.get('auth/incorrect-login-password') }}
+    </mat-error>
     <mat-card-actions class="input">
       <button
         mat-flat-button
@@ -53,7 +52,7 @@
         (click)="logIn()"
         type="button"
       >
-        Login
+        {{ messages.get('auth/login') }}
       </button>
       <button
         mat-flat-button
@@ -62,14 +61,15 @@
         (click)="logInWithGoogle()"
         type="button"
       >
-        Log in with Google
+        {{ messages.get('auth/login-with-google') }}
       </button>
-      <!--    <button mat-flat-button color="accent" class="btn">Accent</button>-->
     </mat-card-actions>
 
-    <p>
-      Don't have an account yet?
-      <a [routerLink]="'/register'" style="color: #61dda0">Create new</a>
+    <p *ngIf="testBool">
+      {{ messages.get('auth/dont-have-account') }}
+      <a [routerLink]="'/register'" style="color: #61dda0">{{
+        messages.get('auth/create-new')
+      }}</a>
     </p>
   </mat-card>
 </form>

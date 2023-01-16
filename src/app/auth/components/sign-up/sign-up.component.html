@@ -2,7 +2,7 @@
   <mat-card class="card">
     <mat-card-header
       style="font-size: larger; margin-right: 70px; margin-bottom: 30px"
-      >Sign Up
+      >{{ messages.get('auth/sign-up') }}
     </mat-card-header>
     <!--    <mat-divider style="align-items: flex-start"></mat-divider>-->
     <mat-card-content>
@@ -77,13 +77,15 @@
         (click)="signUp()"
         type="button"
       >
-        Create Account
+        {{ messages.get('auth/create-account') }}
       </button>
     </mat-card-actions>
 
     <p>
-      Already have an account?
-      <a [routerLink]="'/login'" style="color: #61dda0">Sign in</a>
+      {{ messages.get('auth/already-have-an-account') }}
+      <a [routerLink]="'/login'" style="color: #61dda0">{{
+        messages.get('auth/sign-in')
+      }}</a>
     </p>
   </mat-card>
 </form>
