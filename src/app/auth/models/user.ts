@@ -3,6 +3,7 @@ export interface User {
   displayName: string
   email: string
   emailVerified: boolean
+  access_token: string
 }
 
 export function emptyUser(): User {
@@ -11,5 +12,6 @@ export function emptyUser(): User {
     displayName: '',
     id: '',
     emailVerified: false,
+    access_token: '',
   }
 }

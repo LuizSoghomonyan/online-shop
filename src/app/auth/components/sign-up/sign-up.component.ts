@@ -83,7 +83,7 @@ export class SignUpComponent
           this.route.navigate(['home'])
         },
         (error) => {
-          if (error) {
+          if (error && error.code) {
             const code: string = error.code.toString()
             this.signUpError = messages[code]
             this.hasErrorMessage = true

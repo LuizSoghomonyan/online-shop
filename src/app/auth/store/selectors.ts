@@ -9,3 +9,8 @@ export const selectIsLoginSelector = createSelector(
   selectAuthFeatureSelector,
   (authState) => authState.isLogin
 )
+
+export const selectCurrentUser = createSelector(
+  selectAuthFeatureSelector,
+  (authState) => authState.currentUser
+)

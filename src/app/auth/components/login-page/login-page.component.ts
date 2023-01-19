@@ -47,6 +47,7 @@ export class LoginPageComponent
     })
     this.userData = emptyUser()
     this.showNotFoundUserError = false
+    this.authService.isLogIn()
   }
   ngOnInit(): void {
     this.languageService
@@ -75,12 +76,6 @@ export class LoginPageComponent
         takeUntil(this.destroySubject$),
         map((user: User | undefined) => {
           if (user) {
-            const loginActionInterface: LoginActionInterface = {
-              email: this.form.controls['email'].value,
-              password: this.form.controls['password'].value,
-              loginType: LoginTypesEnum.LOGIN_WITH_EMAIL,
-            }
-            this.store.dispatch(loginAction({ user: loginActionInterface }))
             this.router.navigate(['home'])
           } else {
             this.showNotFoundUserError = true
@@ -96,7 +91,10 @@ export class LoginPageComponent
   logInWithGoogle() {
     if (this.form.valid) {
       this.authService
-        .logInWithGoogle()
+        .logInWithGoogle(
+          this.form.controls['email'].value,
+          this.form.controls['password'].value
+        )
         .pipe(
           takeUntil(this.destroySubject$),
           map((res: firebase.auth.UserCredential | undefined) => {
@@ -120,15 +118,10 @@ export class LoginPageComponent
             }
           })
         )
+
         .subscribe(
-          () => {
-            const loginActionInterface: LoginActionInterface = {
-              email: this.form.controls['email'].value,
-              password: this.form.controls['password'].value,
-              loginType: LoginTypesEnum.LOGIN_WITH_GOOGLE,
-            }
-            this.store.dispatch(loginAction({ user: loginActionInterface }))
-          },
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
+          () => {},
           (err) => {
             console.error(err)
             this.showNotFoundUserError = true
