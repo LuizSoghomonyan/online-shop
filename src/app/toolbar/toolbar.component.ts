@@ -4,6 +4,8 @@ import {
   languageActionENG,
   languageActionRUS,
 } from '../store/language-store/language.action'
+import { NavigationEnd, Router } from '@angular/router'
+import { Observable, of } from 'rxjs'
 
 @Component({
   selector: 'app-toolbar',
@@ -11,7 +13,17 @@ import {
   styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent {
-  constructor(private store: Store) {}
+  isLoginPage: Observable<boolean>
+  constructor(private store: Store, private router: Router) {
+    this.router.events.subscribe((e) => {
+      if (e instanceof NavigationEnd) {
+        if (e.url == '/login') {
+          this.isLoginPage = of(true)
+        } else this.isLoginPage = of(false)
+      }
+    })
+    this.isLoginPage = of(false)
+  }
 
   changeLanguageToENG() {
     this.store.dispatch(languageActionENG({ language: 'eng' }))

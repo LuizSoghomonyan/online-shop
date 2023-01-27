@@ -10,6 +10,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./auth/auth.module').then((module) => module.AuthModule),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./user-info/user.module').then((module) => module.UserModule),
+  },
   { path: 'aaaa', component: TestComponent, canActivate: [AuthGuard] },
   { path: 'home', component: TestComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },

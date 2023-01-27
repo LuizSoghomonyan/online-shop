@@ -7,12 +7,15 @@ import { SignUpComponent } from './components/sign-up/sign-up.component'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import { AuthGuard } from './auth.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
   { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: SignUpComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: SignUpComponent },
 ]
 
 @NgModule({

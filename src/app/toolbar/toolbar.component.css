@@ -1,3 +1,19 @@
+body {
+  background-image: url('../../assets/img/shopping-cart.png');
+}
+
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.content {
+  background-color: #303030;
+  height: 50px;
+  /*flex-direction: row;*/
+  /*justify-content: flex-end;*/
+  /*flex-wrap: nowrap*/
+}
+
+.rangeForIcons {
+  margin-right: 3px;
 }

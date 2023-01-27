@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router'
-import { Observable } from 'rxjs'
+import { map, Observable } from 'rxjs'
 import { AuthService } from './services/auth.service'
 
 @Injectable({
@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.service'
 })
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, public router: Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -22,10 +23,14 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (!this.authService.isLogIn()) {
-      this.router.navigate(['login'])
-      return false
-    }
-    return true
+    return this.authService.isLogIn().pipe(
+      map((isLogin) => {
+        if (!isLogin) {
+          this.router.navigate(['login'])
+          return false
+        }
+        return true
+      })
+    )
   }
 }

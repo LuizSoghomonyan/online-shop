@@ -1,0 +1,18 @@
+.card {
+  width: 250px;
+  height: 70px;
+  /*margin: 15px;*/
+}
+
+.container {
+  margin: 30px 50px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+div app-card {
+  margin-top: 10px;
+}

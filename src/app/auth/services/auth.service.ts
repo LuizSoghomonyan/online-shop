@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { from, Observable, of } from 'rxjs'
+import { catchError, from, map, Observable, of, zip } from 'rxjs'
 import { emptyUser, User } from '../models/user'
-import firebase from 'firebase/compat/app'
 import { UserNotFound } from '../../custom-exception/UserNotFound/user-not-found'
 import { LoginActionInterface } from '../store/models/login.action.interface'
 import { LoginTypesEnum } from '../store/models/loginTypes.enum'
 import { loginAction } from '../store/actions/login.action'
 import { Store } from '@ngrx/store'
-import { selectCurrentUser, selectIsLoginSelector } from '../store/selectors'
+import { selectIsLoginSelector } from '../store/selectors'
+import firebase from 'firebase/compat/app'
+import { updateProfile } from '@angular/fire/auth'
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public userData: User
-  // currentUser: firebase.User | null
-  private expirationTime = 0
 
   constructor(private firebaseAuth: AngularFireAuth, private store: Store) {
     this.userData = emptyUser()
@@ -35,15 +34,7 @@ export class AuthService {
         .signInWithEmailAndPassword(email, password)
         .then((result) => {
           if (result.user) {
-            console.log(
-              firebase
-                .auth()
-                .currentUser?.getIdTokenResult()
-                .then((x) => {
-                  // if(x.expirationTime)
-                  console.log(x)
-                })
-            )
+            this.getExpirationTime()
             const loginActionInterface: LoginActionInterface = {
               email: email,
               password: password,
@@ -66,12 +57,12 @@ export class AuthService {
         .signInWithPopup(this.getProvider('google'))
         .then((result) => {
           if (result) {
-            // this.currentUser = firebase.auth().currentUser
             const loginActionInterface: LoginActionInterface = {
               email: email,
               password: password,
               loginType: LoginTypesEnum.LOGIN_WITH_GOOGLE,
             }
+            this.getExpirationTime()
             this.store.dispatch(loginAction({ user: loginActionInterface }))
             return result
           }
@@ -105,7 +96,9 @@ export class AuthService {
         .createUserWithEmailAndPassword(email, password)
         .then((res: firebase.auth.UserCredential) => {
           if (res.user) {
-            res.user.updateProfile({ displayName: firstname + ' ' + lastname })
+            res.user
+              .updateProfile({ displayName: firstname + ' ' + lastname })
+              .then((r) => console.log(r))
           }
         })
     )
@@ -116,18 +109,41 @@ export class AuthService {
   }
 
   public isLogIn(): Observable<boolean> {
-    this.getExpirationTime()
-    if (this.expirationTime > Date.now() / 1000)
-      return this.store.select(selectIsLoginSelector)
-    else return of(false)
+    return zip(
+      this.getExpirationTime(),
+      this.store.select(selectIsLoginSelector)
+    ).pipe(
+      map(([expirationTime, isLogin]) => {
+        if (expirationTime > Date.now() / 1000) return isLogin
+        else return false
+      }),
+      catchError((x) => of(true))
+    )
   }
 
-  public getExpirationTime(): void {
-    firebase
-      .auth()
-      .currentUser?.getIdTokenResult()
-      .then((x) => {
-        this.expirationTime = Date.parse(x.expirationTime)
-      })
+  public getExpirationTime(): Observable<number> {
+    if (firebase) {
+      const authFunction = firebase.auth()
+      if (authFunction.currentUser) {
+        return from(authFunction.currentUser.getIdTokenResult()).pipe(
+          map((user) => {
+            if (user) return Date.parse(user.expirationTime)
+            return 0
+          })
+        )
+      }
+    }
+    return of(0)
+  }
+
+  public updateProfile(displayName: string, photoURL?: string) {
+    this.firebaseAuth.user.subscribe((data) => {
+      data
+        ?.updateProfile({
+          displayName: displayName,
+          photoURL: photoURL,
+        })
+        .then((data) => console.log(data))
+    })
   }
 }

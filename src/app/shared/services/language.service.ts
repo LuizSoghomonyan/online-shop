@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { selectLanguage } from '../../store/language-store/language.selector'
-import { AppStateInterface } from '../../store/app.state.interface'
 
 @Injectable({
   providedIn: 'root',

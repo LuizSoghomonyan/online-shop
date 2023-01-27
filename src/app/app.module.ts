@@ -37,5 +37,6 @@ import { languadereducers } from './store/reducers'
     StoreModule.forFeature('shared', languadereducers),
   ],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {}

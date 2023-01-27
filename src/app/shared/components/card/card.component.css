@@ -1,0 +1,41 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  height: 100px;
+  width: 270px;
+  background-color: rgba(140, 138, 138, 0.53);
+  margin: 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title {
+  display: inline-block;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+
+.content {
+  display: block;
+}
+
+.img {
+  height: 60px;
+  width: 60px;
+  vertical-align: top;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  flex-wrap: nowrap;
+  cursor: pointer;
+}
