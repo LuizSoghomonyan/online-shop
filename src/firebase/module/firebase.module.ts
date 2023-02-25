@@ -21,6 +21,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
     AngularFirestoreModule,
     AngularFireDatabaseModule,
   ],
-  providers: [FirebaseService, AngularFirestore],
+  providers: [],
 })
 export class FirebaseModule {}

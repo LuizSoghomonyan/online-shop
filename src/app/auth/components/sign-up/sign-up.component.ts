@@ -75,12 +75,10 @@ export class SignUpComponent
             email: this.form.controls['email'].value,
             password: this.form.controls['password'].value,
           }
-
-          this.authService.updateProfile(
-            registerActionInterface.firstname +
-              ' ' +
-              registerActionInterface.lastname,
-            ''
+          console.log(
+            '111111111111',
+            registerActionInterface.firstname,
+            registerActionInterface.lastname
           )
 
           this.store.dispatch(registerAction({ user: registerActionInterface }))

@@ -16,7 +16,7 @@
       [routerLink]="'user'"
     >
       <mat-icon>person</mat-icon>
-      Profile
+      {{ messages.get('user/profile') }}
     </button>
     <!--    <mat-menu #menu="matMenu">-->
     <!--      <button mat-menu-item [routerLink]="'account-settings'">-->
@@ -35,18 +35,19 @@
     <div class="rangeForIcons"></div>
     <button mat-button *ngIf="(isLoginPage | async) === false">
       <mat-icon class="fav">favorite</mat-icon>
-      Orders
+      {{ messages.get('user/orders') }}
     </button>
     <div class="rangeForIcons"></div>
     <button mat-button *ngIf="(isLoginPage | async) === false">
       <mat-icon>shopping_cart</mat-icon>
-      Cart
+      {{ messages.get('user/card') }}
     </button>
     <div class="rangeForIcons"></div>
 
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>language</mat-icon>
     </button>
+
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="changeLanguageToENG()">
         <span>Eng</span>

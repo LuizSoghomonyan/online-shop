@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
 import { TestComponent } from './test/test.component'
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 import { AuthGuard } from './auth/auth.guard'
+import { HomeComponent } from './data/components/home/home.component'
 
 const routes: Routes = [
   {
@@ -15,8 +16,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user-info/user.module').then((module) => module.UserModule),
   },
-  { path: 'aaaa', component: TestComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: TestComponent, canActivate: [AuthGuard] },
+  { path: 'test', component: TestComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [] },
   { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
 ]
 

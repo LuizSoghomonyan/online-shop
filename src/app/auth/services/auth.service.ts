@@ -9,7 +9,6 @@ import { loginAction } from '../store/actions/login.action'
 import { Store } from '@ngrx/store'
 import { selectIsLoginSelector } from '../store/selectors'
 import firebase from 'firebase/compat/app'
-import { updateProfile } from '@angular/fire/auth'
 
 @Injectable({
   providedIn: 'root',
@@ -117,7 +116,7 @@ export class AuthService {
         if (expirationTime > Date.now() / 1000) return isLogin
         else return false
       }),
-      catchError((x) => of(true))
+      catchError(() => of(true))
     )
   }
 
@@ -136,14 +135,7 @@ export class AuthService {
     return of(0)
   }
 
-  public updateProfile(displayName: string, photoURL?: string) {
-    this.firebaseAuth.user.subscribe((data) => {
-      data
-        ?.updateProfile({
-          displayName: displayName,
-          photoURL: photoURL,
-        })
-        .then((data) => console.log(data))
-    })
+  public getFirebaseUser(): Observable<firebase.User | null> {
+    return this.firebaseAuth.user
   }
 }

@@ -6,7 +6,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 import { SignUpComponent } from './components/sign-up/sign-up.component'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from './store/reducers'
-import { AngularFirestore } from '@angular/fire/compat/firestore'
 
 const routes: Routes = [
   {
@@ -27,6 +26,6 @@ const routes: Routes = [
     StoreModule.forFeature('auth', reducers),
   ],
   exports: [LoginPageComponent],
-  providers: [AngularFirestore],
+  providers: [],
 })
 export class AuthModule {}

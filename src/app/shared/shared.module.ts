@@ -6,6 +6,8 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { RouterModule } from '@angular/router'
 import { MessageService } from './services/message.service'
 import { FirebaseModule } from '../../firebase/module/firebase.module'
+import { LanguageService } from './services/language.service'
+import { DataService } from '../data/services/data.service'
 
 @NgModule({
   declarations: [PageNotFoundComponent],
@@ -18,6 +20,6 @@ import { FirebaseModule } from '../../firebase/module/firebase.module'
     FirebaseModule,
   ],
   exports: [MaterialModule, FormsModule, ReactiveFormsModule, CommonModule],
-  providers: [MessageService],
+  providers: [],
 })
 export class SharedModule {}

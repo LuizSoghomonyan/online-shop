@@ -16,9 +16,12 @@ import { EffectsModule } from '@ngrx/effects'
 import { AppEffects } from './app.effects'
 import { ToolbarComponent } from './toolbar/toolbar.component'
 import { languadereducers } from './store/reducers'
+import { HomeComponent } from './data/components/home/home.component'
+import { ControlsModule } from './shared/components/controls.module'
+import { ProductModule } from './data/modules/product.module'
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, ToolbarComponent],
+  declarations: [AppComponent, TestComponent, ToolbarComponent, HomeComponent],
   imports: [
     BrowserModule,
     FirebaseModule,
@@ -35,6 +38,8 @@ import { languadereducers } from './store/reducers'
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([AppEffects]),
     StoreModule.forFeature('shared', languadereducers),
+    ControlsModule,
+    ProductModule,
   ],
   bootstrap: [AppComponent],
   exports: [],

@@ -3,11 +3,21 @@ import { CommonModule } from '@angular/common'
 import { AuthService } from '../auth/services/auth.service'
 import { MessageService } from '../shared/services/message.service'
 import { LanguageService } from '../shared/services/language.service'
+import { DataService } from '../data/services/data.service'
+import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { FirebaseService } from '../../firebase/firebase.service'
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
-  providers: [AuthService, MessageService, LanguageService],
+  providers: [
+    AuthService,
+    MessageService,
+    LanguageService,
+    DataService,
+    AngularFirestore,
+    FirebaseService,
+  ],
 })
 export class CoreModule {
   //Основной модуль должен быть импортирован только из корневого модуля,

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
+  box-shadow: 2px 3px 8px 6px rgb(0 0 0 / 20%);
+  height: 160px;
+  min-width: 200px;
+  min-height: 70px;
+  margin: 10px;
+  align-items: center;
+  border-radius: 5px;
+}
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30%;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+.price {
+  font-size: larger;
+  margin-right: 10px;
+  color: #f5f5f5;
+}
+.sub2 {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  align-items: center;
+}
+.img {
+  margin: 10px;
+  width: 34%;
+  height: 100%;
+  box-shadow: 2px 4px 9px 1px rgb(0 0 0 / 20%);
+  border-radius: 3px;
+}
+
+a {
+  color: rgba(177, 86, 220, 0.66);
+}
